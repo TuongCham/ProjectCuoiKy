@@ -36,6 +36,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="lbMess" layoutX="235.0" layoutY="99.0" text="Label" textFill="#f20000" />
+      <Label fx:id="lbMess" layoutX="235.0" layoutY="99.0" textFill="#f20000" />
    </children>
 </Pane>

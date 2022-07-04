@@ -41,16 +41,21 @@ public class LoginController {
             String username = txtUsername.getText();
             String password = txtPassword.getText();
 //            Account account = new Account(username,password);
-            out.println(username+" "+password);
-            int rs = Integer.parseInt(in.nextLine());
-//            int rs = 1;
-            if(rs==0){
-                App.screenController.activate("welcome");
-            }else if (rs==1){
-                lbMessageError.setText("Wrong username or password!");
-            }else{
-                App.screenController.activate("register");
+            if (username.equals("")||password.equals("")){
+                lbMessageError.setText("Username or password not null!");
+            } else {
+                out.println(username+" "+password+" login");
+                socket.shutdownOutput();
+                int rs = Integer.parseInt(in.nextLine());
+                if(rs==0){
+                    App.screenController.activate("welcome");
+                }else if (rs==1){
+                    lbMessageError.setText("Wrong username or password!");
+                }else{
+                    App.screenController.activate("register");
+                }
             }
+            out.flush();
         } catch (IOException ie) {
             System.out.println("Can't connect to server");
         }

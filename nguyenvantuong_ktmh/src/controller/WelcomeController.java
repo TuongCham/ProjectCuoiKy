@@ -10,7 +10,6 @@ public class WelcomeController {
     @FXML
     void btnShopping(ActionEvent event) {
         App.screenController.activate("shopping");
-
     }
 
 }

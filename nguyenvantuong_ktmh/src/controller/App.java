@@ -1,7 +1,5 @@
 package controller;
 
-import controller.ConnectController;
-import controller.ScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,15 +23,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(ConnectController.class.getResource("../fxmls/login.fxml"));
-        ConnectController controller = new ConnectController();
+        FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("../fxmls/login.fxml"));
+        LoginController controller = new LoginController();
         Pane pane = loader.load();
-//        loader.setController(controller);
+        loader.setController(controller);
         scene = new Scene(pane);
         screenController = new ScreenController(scene);
         screenController.addScreen("login", new FXMLLoader(getClass().getResource("../fxmls/login.fxml")).load());
         screenController.addScreen("register", new FXMLLoader(getClass().getResource("../fxmls/register.fxml")).load());
         screenController.addScreen("welcome", new FXMLLoader(getClass().getResource("../fxmls/welcome.fxml")).load());
+        screenController.addScreen("shopping", new FXMLLoader(getClass().getResource("../fxmls/shopping.fxml")).load());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
